@@ -7,10 +7,10 @@
                         class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i
                             class="ft-menu font-large-1"></i></a></li>
                 <li class="nav-item">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{route('admin.dashboard')}}">
                         <img class="brand-logo" alt="el mohands khana logo"
                              src="{{asset('assets/admin/images/logo/logo.png')}}">
-                        <h3 class="brand-text">El Mohands Khana</h3>
+                        <h3 class="brand-text">{{__('general.project name')}}</h3>
                     </a>
                 </li>
                 <li class="nav-item d-md-none">
@@ -30,18 +30,18 @@
                 <ul class="nav navbar-nav float-right">
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                <span class="mr-1">مرجبا
+                <span class="mr-1">
                   <span
-                      class="user-name text-bold-700">Admin</span>
-{{--                      class="user-name text-bold-700">{{auth('admin') -> user() -> name}}</span>--}}
+
+                      class="user-name text-bold-700">{{auth('admin') -> user() -> name}}</span>
                 </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item"
-                                                                          href="#"><i
-                                    class="ft-user"></i> تعديل الملف الشحصي </a>
+                                                                          href="{{route('edit.profile')}}"><i
+                                    class="ft-user"></i> {{__('admin/navbar.edit profile')}} </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#"><i class="ft-power"></i> تسجيل
-                                الخروج </a>
+                            <a class="dropdown-item" href="{{route('admin.logout')}}"><i class="ft-power"></i>
+                                {{__('admin/navbar.logout')}} </a>
                         </div>
                     </li>
 
@@ -55,23 +55,24 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
 
-{{--                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
 
-{{--                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"--}}
-{{--                                   href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
-{{--                                    {{ $properties['native'] }}--}}
-{{--                                </a>--}}
+                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                                   href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
 
-{{--                                @if (!$loop->last)--}}
-{{--                                    <div class="dropdown-divider"></div>--}}
-{{--                                @endif--}}
-{{--                            @endforeach--}}
+                                @if (!$loop->last)
+                                    <div class="dropdown-divider"></div>
+                                @endif
+                            @endforeach
                         </div>
                     </li>
 
                     <li class="dropdown dropdown-notification nav-item">
                         <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-bell"></i>
-                            <span class="notification-counter badge badge-pill badge-default badge-danger badge-default badge-up badge-glow">5</span>
+                            <span
+                                class="notification-counter badge badge-pill badge-default badge-danger badge-default badge-up badge-glow">5</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
                             <li class="dropdown-menu-header">
