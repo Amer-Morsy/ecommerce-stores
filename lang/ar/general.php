@@ -1,8 +1,15 @@
 <?php
 
 return [
+    'notExist' => 'غير موجود',
+    'select' => 'اختر',
     'hello' => 'مرحبا',
     'save' => 'حفظ',
+    'edit' => 'تعديل',
+    'delete' => 'حذف',
+    'add' => 'اضافة',
+    'show_all' => 'عرض الكل',
+    'back' => 'تراجع',
     'project name' => 'المهندسخانة',
     'admin login' => 'تسجيل دخول لوحة التحكم',
     'name' => ' الاسم',
@@ -14,9 +21,17 @@ return [
     'remember me' => 'تذكر دخولي',
     'login' => 'تسجيل دخول',
     'home' => 'الرئيسية',
+    'value' => 'القيمة',
+    'info' => 'البيانات',
     'profile' => 'الملف الشخصي',
     'edit profile' => 'تعديل بيانات الملف الشخصي ',
     'update_success' => 'تم التحديث بنجاح',
     'update_error' => 'حدث خطاء ما',
+    'categories' => 'الاقسام',
+    'main_categories' => 'القسم الرئيسي',
+    'sub_categories' => 'القسم الفرعي',
+    'slug' => 'الاسم بالرابط',
+    'status' => 'الحالة',
+    'actions' => 'الاجرائات',
 
 ];

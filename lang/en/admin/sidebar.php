@@ -2,6 +2,7 @@
 
 return [
     'settings' => 'Settings',
+    'shipping_method_edit' => 'Shipping Method Edit',
     'shipping methods' => 'Shipping Methods',
 
     'free shipping' => 'free shipping',

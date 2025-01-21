@@ -2,6 +2,7 @@
 
 return [
     'settings' => 'الاعدادت',
+    'shipping_method_edit' => 'تعديل وسيلة توصيل ',
     'shipping methods' => 'وسائل التوصيل',
 
     'free shipping' => 'توصيل مجاني',
