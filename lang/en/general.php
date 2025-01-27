@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'brands' => 'Brands',
+    'photo' => 'Photo',
     'notExist' => 'Not Exist',
     'select' => 'Select',
     'hello' => 'Hello',
@@ -33,4 +35,6 @@ return [
     'slug' => 'Slug',
     'status' => 'Status',
     'actions' => 'Actions',
+    'active' => 'Active',
+    'not_active' => 'Not Active',
 ];

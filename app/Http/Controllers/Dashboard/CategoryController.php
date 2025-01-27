@@ -48,7 +48,7 @@ class CategoryController extends Controller
         } catch (\Exception $ex) {
             DB::rollback();
 
-            Log::error('Shipping method update failed: ' . $ex->getMessage());
+            Log::error('Category create failed: ' . $ex->getMessage());
 
             return redirect()->back()->with('error', __('general.update_error'));
         }
@@ -108,7 +108,7 @@ class CategoryController extends Controller
         } catch (\Exception $ex) {
             DB::rollback();
 
-            Log::error('Shipping method update failed: ' . $ex->getMessage());
+            Log::error('Category update failed: ' . $ex->getMessage());
 
             return redirect()->back()->with('error', __('general.update_error'));
         }

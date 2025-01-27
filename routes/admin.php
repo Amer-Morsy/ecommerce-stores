@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\AdminController;
+use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\SettingController;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,16 @@ Route::group([
             Route::get('delete/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.delete');
         });
         ### end Categories routes #####################################################
+        ################################## brands routes ######################################
+        Route::group(['prefix' => 'brands'], function () {
+            Route::get('/', [BrandController::class, 'index'])->name('admin.brands');
+            Route::get('create', [BrandController::class, 'create'])->name('admin.brands.create');
+            Route::post('store', [BrandController::class, 'store'])->name('admin.brands.store');
+            Route::get('edit/{id}', [BrandController::class, 'edit'])->name('admin.brands.edit');
+            Route::post('update/{id}', [BrandController::class, 'update'])->name('admin.brands.update');
+            Route::get('delete/{id}', [BrandController::class, 'destroy'])->name('admin.brands.delete');
+        });
+        ################################## end brands    #######################################
     });
 
     Route::group(['middleware' => 'guest:admin', 'prefix' => 'admin', 'namespace' => 'Dashboard'], function () {
