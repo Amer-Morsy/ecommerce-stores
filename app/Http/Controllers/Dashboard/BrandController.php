@@ -106,19 +106,24 @@ class BrandController extends Controller
     public function destroy($id)
     {
         try {
+            DB::beginTransaction();
+
             $brand = Brand::find($id);
 
             if (!$brand)
                 return redirect()->route('admin.brands')->with(['error' => __('general.notExist')]);
 
-            $brand->detelte();
+            $brand->delete();
+
+            DB::commit();
 
             return redirect()->route('admin.brands')->with('success', __('general.update_success'));
 
         }catch (\Exception $exception){
+            DB::rollBack();
             Log::error('Brand delete failed: ' . $exception->getMessage());
 
-            return redirect()->route('admin.brands')->with('error', __('general.update_error'));
+            return redirect()->route('admin.brands')->with('error', __('general.update_error') . $exception->getMessage());
         }
     }
 }

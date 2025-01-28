@@ -83,29 +83,6 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row hidden" id="cats_list">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group">
-                                                            <label for="projectinput1"> {{__('general.categories')}}
-                                                            </label>
-                                                            <select name="parent_id" class="select2 form-control">
-                                                                <optgroup label="{{__('general.select')}}">
-                                                                    @if($categories && $categories -> count() > 0)
-                                                                        @foreach($categories as $category)
-                                                                            <option
-                                                                                value="{{$category -> id }}">{{$category -> name}}</option>
-                                                                        @endforeach
-                                                                    @endif
-                                                                </optgroup>
-                                                            </select>
-                                                            @error('parent_id')
-                                                            <span class="text-danger"> {{$message}}</span>
-                                                            @enderror
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group mt-1">
@@ -153,6 +130,29 @@
                                                                 class="card-title ml-1">
                                                                 {{__('general.sub_categories')}}
                                                             </label>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row hidden" id="cats_list">
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label for="projectinput1"> {{__('general.categories')}}
+                                                            </label>
+                                                            <select name="parent_id" class="select2 form-control w-100">
+                                                                <optgroup label="{{__('general.select')}}">
+                                                                    @if($categories && $categories -> count() > 0)
+                                                                        @foreach($categories as $category)
+                                                                            <option
+                                                                                value="{{$category -> id }}">{{$category -> name}}</option>
+                                                                        @endforeach
+                                                                    @endif
+                                                                </optgroup>
+                                                            </select>
+                                                            @error('parent_id')
+                                                            <span class="text-danger"> {{$message}}</span>
+                                                            @enderror
 
                                                         </div>
                                                     </div>

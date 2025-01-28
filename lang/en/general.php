@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'tags' => 'Tags',
     'brands' => 'Brands',
     'photo' => 'Photo',
     'notExist' => 'Not Exist',
