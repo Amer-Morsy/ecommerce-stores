@@ -20,3 +20,6 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 1px;
 }
+.select2-container{
+    width: 100% !important;
+}

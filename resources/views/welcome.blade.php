@@ -1,1 +1,1 @@
-@extends('layouts.front')
+@extends('layouts.blank')
