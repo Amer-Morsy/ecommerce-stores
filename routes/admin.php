@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\Dashboard\AdminController;
+use App\Http\Controllers\dashboard\AttributeController;
 use App\Http\Controllers\Dashboard\BrandController;
 use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\OptionController;
+use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\TagController;
 use Illuminate\Support\Facades\Route;
@@ -27,15 +30,15 @@ Route::group([
                 ->name('update.profile');
         });
 
-        ### start settings routes ########################################
+        ### settings ###
         Route::group(['prefix' => 'settings'], function () {
             Route::get('shipping-methods/{type}', [SettingController::class, 'editShippingMethods'])
                 ->name('edit.shipping.methods');
             Route::put('shipping-methods/{id}', [SettingController::class, 'updateShippingMethods'])
                 ->name('update.shipping.methods');
         });
-        ### end settings routes ##########################################
-        ### start Categories routes ###################################################
+        ### end settings ###
+        ### Categories   ###
         Route::group(['prefix' => 'categories'], function () {
             Route::get('/', [CategoryController::class, 'index'])->name('admin.categories');
             Route::get('create', [CategoryController::class, 'create'])->name('admin.categories.create');
@@ -44,8 +47,8 @@ Route::group([
             Route::post('update/{id}', [CategoryController::class, 'update'])->name('admin.categories.update');
             Route::get('delete/{id}', [CategoryController::class, 'destroy'])->name('admin.categories.delete');
         });
-        ### end Categories routes #####################################################
-        ################################## brands routes ######################################
+        ### end Categories ####
+        ### brands         ####
         Route::group(['prefix' => 'brands'], function () {
             Route::get('/', [BrandController::class, 'index'])->name('admin.brands');
             Route::get('create', [BrandController::class, 'create'])->name('admin.brands.create');
@@ -54,8 +57,8 @@ Route::group([
             Route::post('update/{id}', [BrandController::class, 'update'])->name('admin.brands.update');
             Route::get('delete/{id}', [BrandController::class, 'destroy'])->name('admin.brands.delete');
         });
-        ################################## end brands    #######################################
-        ################################## Tags routes ######################################
+        ### end brands ###
+        ### Tags ###
         Route::group(['prefix' => 'tags'], function () {
             Route::get('/', [TagController::class, 'index'])->name('admin.tags');
             Route::get('create', [TagController::class, 'create'])->name('admin.tags.create');
@@ -64,7 +67,56 @@ Route::group([
             Route::post('update/{id}', [TagController::class, 'update'])->name('admin.tags.update');
             Route::get('delete/{id}', [TagController::class, 'destroy'])->name('admin.tags.delete');
         });
-        ################################## end brands    #######################################
+        ### end brands ###
+        ### products ###
+        Route::group(['prefix' => 'products'], function () {
+            Route::get('/', [ProductController::class, 'index'])
+                ->name('admin.products');
+            Route::get('general-information', [ProductController::class, 'create'])
+                ->name('admin.products.general.create');
+            Route::post('store-general-information', [ProductController::class, 'store'])
+                ->name('admin.products.general.store');
+
+            Route::get('price/{id}', [ProductController::class, 'getPrice'])
+                ->name('admin.products.price');
+            Route::post('price', [ProductController::class, 'saveProductPrice'])
+                ->name('admin.products.price.store');
+
+            Route::get('stock/{id}', [ProductController::class, 'getStock'])
+                ->name('admin.products.stock');
+            Route::post('stock', [ProductController::class, 'saveProductStock'])
+                ->name('admin.products.stock.store');
+
+            Route::get('images/{id}', [ProductController::class, 'addImages'])
+                ->name('admin.products.images');
+            Route::post('images', [ProductController::class, 'saveProductImages'])
+                ->name('admin.products.images.store');
+            Route::post('images/db', [ProductController::class, 'saveProductImagesDB'])
+                ->name('admin.products.images.store.db');
+        });
+        ### end products ###
+
+        ### attributes ###
+        Route::group(['prefix' => 'attributes'], function () {
+            Route::get('/', [AttributeController::class, 'index'])->name('admin.attributes');
+            Route::get('create', [AttributeController::class, 'create'])->name('admin.attributes.create');
+            Route::post('store', [AttributeController::class, 'store'])->name('admin.attributes.store');
+            Route::get('edit/{id}', [AttributeController::class, 'edit'])->name('admin.attributes.edit');
+            Route::post('update/{id}', [AttributeController::class, 'update'])->name('admin.attributes.update');
+            Route::get('delete/{id}', [AttributeController::class, 'destroy'])->name('admin.attributes.delete');
+        });
+        ### end attributes ###
+
+        ### options ###
+        Route::group(['prefix' => 'options'], function () {
+            Route::get('/', [OptionController::class, 'index'])->name('admin.options');
+            Route::get('create', [OptionController::class, 'create'])->name('admin.options.create');
+            Route::post('store', [OptionController::class, 'store'])->name('admin.options.store');
+            Route::get('edit/{id}', [OptionController::class, 'edit'])->name('admin.options.edit');
+            Route::post('update/{id}', [OptionController::class, 'update'])->name('admin.options.update');
+            Route::get('delete/{id}', [OptionController::class, 'destroy'])->name('admin.options.delete');
+        });
+        ### end options ###
 
     });
 

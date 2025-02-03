@@ -1,19 +1,19 @@
 @extends('layouts.admin')
-@section('title', __('general.brands'))
+@section('title', __('general.products'))
 @section('content')
 
     <div class="app-content content">
         <div class="content-wrapper">
             <div class="content-header row">
                 <div class="content-header-left col-md-6 col-12 mb-2">
-                    <h3 class="content-header-title"> {{__('general.brands')}} </h3>
+                    <h3 class="content-header-title">{{__('general.products')}} </h3>
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.dashboard')}}"> {{__('general.home')}}</a>
+                                <li class="breadcrumb-item"><a
+                                        href="{{route('admin.dashboard')}}">{{__('general.home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active"> {{__('general.brands')}}
-                                </li>
+                                <li class="breadcrumb-item active"> {{__('general.products')}}</li>
                             </ol>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{__('general.brands')}}</h4>
+                                    <h4 class="card-title"> {{__('general.products')}} </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -49,41 +49,43 @@
                                             <thead class="">
                                             <tr>
                                                 <th>{{__('general.name')}} </th>
-                                                <th>{{__('general.status')}}</th>
-                                                <th>{{__('general.photo')}}</th>
-                                                <th>{{__('general.actions')}}</th>
+                                                <th> {{__('general.slug')}}</th>
+                                                <th> {{__('general.status')}}</th>
+                                                <th> {{__('general.price')}}</th>
+                                                <th> {{__('general.actions')}}</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 
-                                            @isset($brands)
-                                                @foreach($brands as $brand)
+                                            @isset($products)
+                                                @foreach($products as $product)
                                                     <tr>
-                                                        <td>{{$brand -> name}}</td>
-                                                        <td>{{$brand -> getActive()}}</td>
-                                                        <td><img style="width: 150px; height: 100px;"
-                                                                 src="{{$brand -> photo }}"></td>
+                                                        <td>{{$product -> name}}</td>
+                                                        <td>{{$product -> slug}}</td>
+                                                        <td>{{$product -> getActive()}}</td>
+                                                        <td>{{$product -> price}}</td>
                                                         <td>
                                                             <div class="btn-group" role="group"
                                                                  aria-label="Basic example">
-                                                                <a href="{{route('admin.brands.edit',$brand -> id)}}"
-                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('general.edit')}}</a>
+                                                                <a href="{{route('admin.products.price', $product->id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('general.price')}}</a>
 
+                                                                <a href="{{route('admin.products.images', $product->id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('general.images')}}</a>
 
-                                                                <a href="{{route('admin.brands.delete',$brand -> id)}}"
-                                                                   class="btn btn-outline-danger btn-min-width box-shadow-3 mr-1 mb-1">{{__('general.delete')}}</a>
-
+                                                                <a href="{{route('admin.products.stock', $product->id)}}"
+                                                                   class="btn btn-outline-primary btn-min-width box-shadow-3 mr-1 mb-1">{{__('general.inventory')}}</a>
                                                             </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
                                             @endisset
-
                                             </tbody>
                                         </table>
-                                        {!! $brands -> links() !!}
+                                    {!! $products -> links() !!}
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>

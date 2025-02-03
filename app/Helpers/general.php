@@ -1,14 +1,15 @@
 <?php
 
-define('PAGINATION_COUNT', 10);
+define('PAGINATION_COUNT', 1);
 
- function getFolder(){
-
-     return app() -> getLocale() == 'ar' ? 'css-rtl' : 'css';
+function getFolder()
+{
+    return app()->getLocale() == 'ar' ? 'css-rtl' : 'css';
 }
 
-function uploadImage($folder,$image){
+function uploadImage($folder, $image)
+{
     $image->store('/', $folder);
     $filename = $image->hashName();
-    return  $filename;
+    return $filename;
 }

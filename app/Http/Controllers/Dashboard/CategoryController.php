@@ -81,7 +81,7 @@ class CategoryController extends Controller
             $category->save();
             DB::commit();
 
-            return redirect()->back()->with('success', __('general.update_success'));
+            return redirect()->route('admin.categories')->with('success', __('general.update_success'));
         } catch (\Exception $ex) {
             DB::rollback();
 

@@ -10,7 +10,7 @@ NOTE:
 PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
 WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
 .bg-info {
-    background-color: #1b1834  !important;
+    background-color: #1e1a3d !important;
     /*background-color: #5f4300   !important;*/
 }
 
@@ -20,6 +20,42 @@ WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BET
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 1px;
 }
-.select2-container{
+
+.select2-container {
     width: 100% !important;
+}
+
+#DataTables_Table_0_info, #DataTables_Table_0_paginate {
+    display: none;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-item {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #e6e6e6;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    margin: 2px;
+    text-decoration: none;
+    color: #7b7b7b;
+}
+
+.pagination-item.active {
+    background-color: #e9580c;
+    border-color: #e9580c;
+    color: white;
+}
+
+a.pagination-item:hover {
+    border-color: #e9580c;
+    color: #e9580c;
 }

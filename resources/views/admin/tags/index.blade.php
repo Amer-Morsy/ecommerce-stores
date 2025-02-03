@@ -79,9 +79,7 @@
 
                                             </tbody>
                                         </table>
-                                        {{--                                        <div class="justify-content-center d-flex">--}}
-
-                                        {{--                                        </div>--}}
+                                        {!! $tags -> links() !!}
                                     </div>
                                 </div>
                             </div>
