@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\OptionController;
 use App\Http\Controllers\Dashboard\ProductController;
 use App\Http\Controllers\Dashboard\SettingController;
+use App\Http\Controllers\Dashboard\SliderController;
 use App\Http\Controllers\Dashboard\TagController;
 use Illuminate\Support\Facades\Route;
 
@@ -117,6 +118,15 @@ Route::group([
             Route::get('delete/{id}', [OptionController::class, 'destroy'])->name('admin.options.delete');
         });
         ### end options ###
+
+        ### sliders ###
+        Route::group(['prefix' => 'sliders'], function () {
+            Route::get('/', [SliderController::class, 'addImages'])->name('admin.sliders.create');
+            Route::post('images', [SliderController::class, 'saveSliderImages'])->name('admin.sliders.images.store');
+            Route::post('images/db', [SliderController::class, 'saveSliderImagesDB'])->name('admin.sliders.images.store.db');
+
+        });
+        ### end sliders ###
 
     });
 

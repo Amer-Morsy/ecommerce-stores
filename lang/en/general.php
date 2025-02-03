@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'slider_images' => 'slider images',
+    'current_images' => 'current images',
     'options' => 'Options',
     'attributes' => 'Attributes',
     'can_upload_multiple_images' => 'can upload multiple images',

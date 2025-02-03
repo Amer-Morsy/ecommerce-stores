@@ -1,6 +1,8 @@
 <?php
 
 return [
+    'current_images' => 'الصور الحاليه',
+    'slider_images' => 'صور اسليدر',
     'options' => 'قيم الخصائص',
     'attributes' => 'الخصائص',
     'can_upload_multiple_images' => 'يمكنك رفع اكثر من صوره هنا',
