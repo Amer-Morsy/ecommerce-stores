@@ -48,6 +48,7 @@
                     <li class="dropdown dropdown-user nav-item">
                         <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
                 <span class="mr-1">
+                    <i class="fa fa-language m-1"></i>
                   <span
                       class="user-name text-bold-700">  {{App::getLocale()}}</span>
                 </span>

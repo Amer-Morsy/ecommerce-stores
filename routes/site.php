@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Site\HomeController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -11,9 +12,8 @@ Route::group([
         'localeViewPath'
     ]
 ], function () {
-    Route::group(['prefix'=> ''], function(){
-        route::get('/', function (){
-            return 'Site';
-        })->name('home');
+    Route::group(['namespace' => 'Site'], function () {
+        route::get('/', [HomeController::class, 'home'])->name('home');
+
     });
 });
