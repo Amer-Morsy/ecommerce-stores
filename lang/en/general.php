@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'have_account' => 'Have account ? Login',
+    'no_account' => 'No account? Create one here',
+    'show' => 'Show',
+    'register' => 'Register',
     'slider_images' => 'slider images',
     'current_images' => 'current images',
     'options' => 'Options',

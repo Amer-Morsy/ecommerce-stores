@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'have_account' => 'هل لديك حساب ؟ تسجيل الدخول',
+    'no_account' => 'ليس لديك حساب ؟ حساب جديد',
+    'show' => 'عرض',
+    'register' => 'حساب جديد',
     'current_images' => 'الصور الحاليه',
     'slider_images' => 'صور اسليدر',
     'options' => 'قيم الخصائص',
