@@ -12,10 +12,8 @@ class Image extends Model
     /**
      * Accessor: Photo URL
      */
-    protected function photo()
+    public function getPhotoAttribute($val)
     {
-        return Attribute::get(function ($value) {
-            return $value ? asset('assets/images/products/' . $value) : '';
-        });
+        return ($val !== null) ? asset('assets/images/products/' . $val) : "";
     }
 }

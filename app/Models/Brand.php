@@ -52,12 +52,7 @@ class Brand extends Model
     /**
      * Accessor: Photo URL
      */
-//    public function photo()
-//    {
-//        return Attribute::get(function ($value) {
-//            return $value ? asset('assets/images/brands/' . $value) : '';
-//        });
-//    }
+
     public function  getPhotoAttribute($val){
         return ($val !== null) ? asset('assets/images/brands/' . $val) : "";
     }

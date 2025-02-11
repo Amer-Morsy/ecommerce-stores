@@ -270,6 +270,36 @@
         #popup-subscribe .modal-dialog .modal-content {
             background-image: url(../modules/novthemeconfig/images/newsletter_bg-1.png);
         }
+        .pagination {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pagination-item {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 1px solid #e6e6e6;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            margin: 2px;
+            text-decoration: none;
+            color: #7b7b7b;
+        }
+
+        .pagination-item.active {
+            background-color: #e9580c;
+            border-color: #e9580c;
+            color: white;
+        }
+
+        a.pagination-item:hover {
+            border-color: #e9580c;
+            color: #e9580c;
+        }
     </style>
     @yield('styles')
 </head>
