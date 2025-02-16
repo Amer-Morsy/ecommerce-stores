@@ -11,7 +11,7 @@ class CategoryController extends Controller
     public function productsBySlug($slug)
     {
         $data = [];
-        $data['categories'] = Category::parent()->select('id', 'slug')->with(['childrens' => function ($q) {
+        $data['categories'] = Category::parent()->active()->select('id', 'slug')->with(['childrens' => function ($q) {
             $q->select('id', 'parent_id', 'slug');
             $q->with(['childrens' => function ($qq) {
                 $qq->select('id', 'parent_id', 'slug');

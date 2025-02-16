@@ -190,22 +190,30 @@
 </script>
 
 {{--PUSHER--}}
-
 <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
 <script>
-    var previousCounter = $('.notification-counter').text(); //8
-    var notificationsCount = parseInt(previousCounter);
-    // Enable pusher logging - don't include this in production
-    var pusher = new Pusher('fb3d0dee02ba83d8f536', {
-        encrypted: true
-    });
-    //Pusher.logToConsole = true;
-    // Subscribe to the channel we specified in our Laravel Event
-    var channel = pusher.subscribe('order');
-    // Bind a function to a Our Event
-    channel.bind('App\\Events\\NewOrder', function (data) {
-        notificationsCount += 1;
-        $('.notification-counter').text(notificationsCount)
+    document.addEventListener('DOMContentLoaded', function() {
+        var previousCounter = $('.notification-counter').text(); //8
+        var notificationsCount = parseInt(previousCounter);
+
+        // Ensure Pusher is defined before using it
+        if (typeof Pusher !== 'undefined') {
+            var pusher = new Pusher('{{ env('PUSHER_APP_KEY') }}', {
+                cluster: '{{ env('PUSHER_APP_CLUSTER', 'mt1') }}',
+                encrypted: true
+            });
+
+            // Subscribe to the channel we specified in our Laravel Event
+            var channel = pusher.subscribe('order');
+
+            // Bind a function to our Event
+            channel.bind('App\\Events\\NewOrder', function (data) {
+                notificationsCount += 1;
+                $('.notification-counter').text(notificationsCount);
+            });
+        } else {
+            console.error('Pusher library not loaded');
+        }
     });
 </script>
 

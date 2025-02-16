@@ -1,5 +1,5 @@
 @extends('layouts.front')
-@section('title', __('general.categories'))
+@section('title', 'Favourite List')
 @section('content')
 
     <nav data-depth="3" class="breadcrumb-bg">
@@ -14,8 +14,8 @@
                         <meta itemprop="position" content="1">
                     </li>
                     <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-                        <a itemprop="item" href="#">
-                            <span itemprop="name">{{$category -> name}}</span>
+                        <a itemprop="item" href="">
+                            <span itemprop="name">Favourite List</span>
                         </a>
                         <meta itemprop="position" content="3">
                     </li>
@@ -29,7 +29,7 @@
             <div id="content-wrapper" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <section id="main">
                     <div class="block-category hidden-sm-down">
-                        <h1 class="h1">{{$category -> name}}</h1>
+                        <h1 class="h1"> favourite list</h1>
                     </div>
                     <section id="products">
 
@@ -38,8 +38,8 @@
                             <div id="js-product-list-top" class="row products-selection">
                                 <div class="col-md-6 col-xs-6">
                                     <div class="change-type">
-                                    <span class="grid-type active" data-view-type="grid"><i
-                                            class="fa fa-th-large"></i></span>
+                                        <span class="grid-type active" data-view-type="grid"><i
+                                                class="fa fa-th-large"></i></span>
                                         <span class="list-type" data-view-type="list"><i class="fa fa-bars"></i></span>
                                     </div>
                                     <div class="hidden-sm-down total-products">
@@ -58,17 +58,17 @@
                                             </a>
                                             <div class="dropdown-menu">
                                                 <a rel="nofollow"
-                                                   href="#"
+                                                   href="36-mini-speaker-27.html?home=home_3&amp;order=product.position.asc"
                                                    class="select-list current js-search-link">
                                                     Relevance
                                                 </a>
                                                 <a rel="nofollow"
-                                                   href="#"
+                                                   href="36-mini-speaker-28.html?home=home_3&amp;order=product.name.asc"
                                                    class="select-list js-search-link">
                                                     Name, A to Z
                                                 </a>
                                                 <a rel="nofollow"
-                                                   href="#"
+                                                   href="36-mini-speaker-29.html?home=home_3&amp;order=product.name.desc"
                                                    class="select-list js-search-link">
                                                     Name, Z to A
                                                 </a>
@@ -81,8 +81,6 @@
                             </div>
 
                         </div>
-
-
                         <div id="categories-product">
                             <div id="js-product-list">
                                 <div class="products product_list grid row" data-default-view="grid">
@@ -93,7 +91,7 @@
                                                      data-id-product="22" data-id-product-attribute="408" itemscope=""
                                                      itemtype="http://schema.org/Product">
                                                     <div class="thumbnail-container">
-                                                        <a href="{{route('product.details',$product -> slug)}}"
+                                                        <a href="audio/22-408-aenean-porta-ligula-egestas-east.html#/1-size-s/10-color-red"
                                                            class="thumbnail product-thumbnail two-image">
                                                             <img class="img-fluid image-cover"
                                                                  src="{{$product -> images[0] -> photo ?? ''}}"
@@ -139,13 +137,12 @@
                                                             </div>
 
                                                             <div class="product-title" itemprop="name"><a
-                                                                    href="{{route('product.details',$product -> slug)}}">{{$product -> name}}</a>
-                                                            </div>
+                                                                    href="">{{$product -> name}}</a></div>
 
                                                             <div class="product-group-price">
                                                                 <div class="product-price-and-shipping">
-                                                        <span itemprop="price"
-                                                              class="price">{{$product -> special_price ?? $product -> price }}</span>
+                                                                    <span itemprop="price"
+                                                                          class="price">{{$product -> special_price ?? $product -> price }}</span>
                                                                     @if($product -> special_price)
                                                                         <span
                                                                             class="regular-price">{{$product -> price}}</span>
@@ -162,21 +159,21 @@
                                                              itemprop="offers" itemscope=""
                                                              itemtype="http://schema.org/Offer">
                                                             <form
+                                                                action=""
                                                                 method="post" class="formAddToCart">
                                                                 @csrf
                                                                 <input type="hidden" name="id_product"
                                                                        value="{{$product -> id}}">
-                                                                <a class="add-to-cart cart-addition"
-                                                                   data-product-id="{{$product -> id}}"
-                                                                   data-product-slug="{{$product -> slug}}" href="#"
-                                                                   data-button-action="add-to-cart"><i
-                                                                        class="novicon-cart"></i><span>Add to cart</span></a>
+{{--                                                                <a class="add-to-cart" href="#"--}}
+{{--                                                                   data-button-action="add-to-cart"><i--}}
+{{--                                                                        class="novicon-cart"></i><span>Add to cart</span></a>--}}
                                                             </form>
 
-                                                            <a class="addToWishlist  wishlistProd_22" href="#"
+                                                            <a class="removeFromWishlist wishlistProd_22"
+                                                               href="#"
                                                                data-product-id="{{$product -> id}}">
                                                                 <i class="fa fa-heart"></i>
-                                                                <span>Add to Wishlist</span>
+                                                                <span>remove from Wishlist</span>
                                                             </a>
                                                             <a href="#" class="quick-view hidden-sm-down"
                                                                data-product-id="{{$product -> id}}">
@@ -205,9 +202,10 @@
     </div>
 
     @include('front.includes.not-logged')
-    @include('front.includes.alert') <!-- we can use only one with dynamic text -->
+    @include('front.includes.alert')   <!-- we can use only one with dynamic text -->
     @include('front.includes.alert2')
-@endsection()
+
+@stop
 
 @section('scripts')
     <script>
@@ -216,10 +214,7 @@
         });
         $(document).on('click', '.close', function () {
             $('.quickview-modal-product-details-' + $(this).attr('data-product-id')).css("display", "none");
-
             $('.not-loggedin-modal').css("display", "none");
-            $('.alert-modal').css("display", "none");
-            $('.alert-modal2').css("display", "none");
         });
         $.ajaxSetup({
             headers: {
@@ -227,45 +222,22 @@
             }
         });
 
-        $(document).on('click', '.addToWishlist', function (e) {
+        $(document).on('click', '.removeFromWishlist', function (e) {
             e.preventDefault();
 
             @guest()
             $('.not-loggedin-modal').css('display', 'block');
             @endguest
+
+
             $.ajax({
-                type: 'post',
-                url: "{{Route('wishlist.store')}}",
+                type: 'delete',
+                url: "{{Route('wishlist.destroy')}}",
                 data: {
                     'productId': $(this).attr('data-product-id'),
                 },
                 success: function (data) {
-                    if (data.wished)
-                        $('.alert-modal').css('display', 'block');
-                    else
-                        $('.alert-modal2').css('display', 'block');
-                }
-            });
-        });
-
-        $(document).on('click', '.cart-addition', function (e) {
-            e.preventDefault();
-
-            $.ajax({
-                type: 'post',
-                url: "{{Route('site.cart.add')}}",
-                data: {
-                    'product_id': $(this).attr('data-product-id'),
-                    'product_slug': $(this).attr('data-product-slug'),
-                },
-                success: function (data) {
-                    console.error("Add: " + data);
-
-
-                },
-                error: function (xhr, status, error) {
-                    console.error("Error occurred: " + xhr.responseText);
-                    alert("An error occurred: " + xhr.status + " " + xhr.statusText);
+                    location.reload();
                 }
             });
         });
