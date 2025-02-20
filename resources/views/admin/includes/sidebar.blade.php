@@ -53,6 +53,7 @@
                 </ul>
             </li>
             {{--Brands--}}
+            @can('brands')
             <li class="nav-item"><a href=""><i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('general.brands')}}</span>
                     <span
@@ -67,6 +68,7 @@
                     </li>
                 </ul>
             </li>
+            @endcan
             {{--Tags--}}
             <li class="nav-item"><a href=""><i class="la la-group"></i>
                     <span class="menu-title" data-i18n="nav.dash.main">{{__('general.tags')}}</span>
@@ -123,6 +125,36 @@
                                           data-i18n="nav.dash.ecommerce"> {{__('general.show_all')}}</a>
                     </li>
                     <li><a class="menu-item" href="{{route('admin.options.create')}}"
+                           data-i18n="nav.dash.crypto">{{__('general.add')}}</a>
+                    </li>
+                </ul>
+            </li>
+            {{--roles--}}
+            <li class="nav-item"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('general.permissions')}}</span>
+                    <span
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Role::count()}} </span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{route('admin.roles.index')}}"
+                                          data-i18n="nav.dash.ecommerce"> {{__('general.show_all')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.roles.create')}}"
+                           data-i18n="nav.dash.crypto">{{__('general.add')}}</a>
+                    </li>
+                </ul>
+            </li>
+            {{--users--}}
+            <li class="nav-item"><a href=""><i class="la la-group"></i>
+                    <span class="menu-title" data-i18n="nav.dash.main">{{__('general.users')}}</span>
+                    <span
+                        class="badge badge badge-danger badge-pill float-right mr-2">{{\App\Models\Admin::where('id', '<>', auth()->id())->count()}} </span>
+                </a>
+                <ul class="menu-content">
+                    <li class="active"><a class="menu-item" href="{{route('admin.users.index')}}"
+                                          data-i18n="nav.dash.ecommerce"> {{__('general.show_all')}}</a>
+                    </li>
+                    <li><a class="menu-item" href="{{route('admin.users.create')}}"
                            data-i18n="nav.dash.crypto">{{__('general.add')}}</a>
                     </li>
                 </ul>

@@ -135,7 +135,7 @@
                                         <tbody>
                                         <tr class="bg-success bg-lighten-5">
                                             <td>105000</td>
-                                            <td>احمد امام</td>
+                                            <td>عادل امام</td>
                                             <td>$ 4762.53</td>
                                             <td>مكتمل</td>
                                             <td>$ 4762.53</td>

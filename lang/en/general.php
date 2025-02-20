@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'permissions' => 'Permissions',
     'have_account' => 'Have account ? Login',
     'no_account' => 'No account? Create one here',
     'show' => 'Show',

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'permissions' => 'الصلاحيات',
     'have_account' => 'هل لديك حساب ؟ تسجيل الدخول',
     'no_account' => 'ليس لديك حساب ؟ حساب جديد',
     'show' => 'عرض',
