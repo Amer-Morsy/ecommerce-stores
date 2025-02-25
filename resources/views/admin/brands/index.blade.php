@@ -81,8 +81,7 @@
 
                                             </tbody>
                                         </table>
-                                        <div class="justify-content-center d-flex">
-                                        </div>
+                                        {!! $brands -> links() !!}
                                     </div>
                                 </div>
                             </div>

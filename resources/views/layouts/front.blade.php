@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Prestashop_Savemart</title>
+    <title>@yield('title')</title>
     <meta name="description" content="Shop powered by PrestaShop">
     <meta name="keywords" content="">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=yes">
@@ -12,14 +12,11 @@
     <link rel="icon" type="image/vnd.microsoft.icon" href="{{asset('assets/front/img/favicon.ico')}}?1531456858">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/front/img/favicon.ico')}}?1531456858">
 
-
     <link href="{{asset('assets/front/css/css.css')}}?family=Roboto:300,400,500,600,700,900" rel="stylesheet">
     <link href="{{asset('assets/front/css/css-1.css')}}?family=Oswald:300,400,500,600,700,900" rel="stylesheet">
 
-
     <link rel="stylesheet" href="{{asset('assets/front/themes/vinova_savemart/assets/cache/theme-78026624.css')}}"
           type="text/css" media="all">
-
 
     <script type="text/javascript">
         var added_to_wishlist = "The product was successfully added to your wishlist.";
@@ -242,12 +239,10 @@
         var search_url = "http:\/\/demo.bestprestashoptheme.com\/savemart\/en\/search";
     </script>
 
-
     <script type="text/javascript">
         var baseDir = "/savemart/";
         var static_token = "28add935523ef131c8432825597b9928";
     </script>
-
 
     <style type="text/css">
         #main-site {
@@ -274,6 +269,36 @@
 
         #popup-subscribe .modal-dialog .modal-content {
             background-image: url(../modules/novthemeconfig/images/newsletter_bg-1.png);
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pagination-item {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 1px solid #e6e6e6;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            margin: 2px;
+            text-decoration: none;
+            color: #7b7b7b;
+        }
+
+        .pagination-item.active {
+            background-color: #e9580c;
+            border-color: #e9580c;
+            color: white;
+        }
+
+        a.pagination-item:hover {
+            border-color: #e9580c;
+            color: #e9580c;
         }
     </style>
     @yield('styles')
@@ -305,10 +330,8 @@
         </div>
     </div>
 
-
     <aside id="notifications">
         <div class="container">
-
 
         </div>
     </aside>

@@ -18,4 +18,9 @@ class Tag extends Model
     protected $fillable = ['slug'];
 
     protected $hidden = ['translations'];
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class, 'product_tags');
+    }
 }

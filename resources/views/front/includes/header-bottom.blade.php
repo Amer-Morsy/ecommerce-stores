@@ -15,7 +15,8 @@
 
                                     @isset($categories)
                                         @foreach($categories as $category)
-                                            <li class="item  parent"><a href="{{route('category',$category -> slug )}}" title="Laptops &amp; Accessories"><i
+                                            <li class="item  parent"><a href="{{route('category',$category -> slug )}}"
+                                                                        title="Laptops &amp; Accessories"><i
                                                         class="hasicon nov-icon"
                                                         style="background:url('http://demo.bestprestashoptheme.com/savemart/themes/vinova_savemart/assets/img/modules/novverticalmenu/icon/laptop.png') no-repeat scroll center center;">
 
