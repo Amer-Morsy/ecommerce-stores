@@ -3,10 +3,10 @@
 Welcome to the E-commerce Stores project! This is a comprehensive e-commerce platform built with Laravel, designed to provide a seamless shopping experience for users and robust management tools for store owners.
 
 <p align="center">
-<img width="400" height="400" src="./public/assets/images/img1.jpeg">
-<img width="400" height="400" src="./public/assets/images/img2.jpeg">
-<img width="400" height="400" src="./public/assets/images/img3.jpeg">
-<img width="400" height="400" src="./public/assets/images/img4.jpeg">
+<img width="350" height="400" src="./public/assets/images/img1.jpeg">
+<img width="350" height="400" src="./public/assets/images/img2.jpeg">
+<img width="350" height="400" src="./public/assets/images/img3.jpeg">
+<img width="350" height="400" src="./public/assets/images/img4.jpeg">
 </p>
 
 ## Features
